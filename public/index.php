@@ -17,6 +17,15 @@ $router->post("/chat",function(array $params){
 $router->get("/chat",function(array $params){
     require_once __DIR__."/../views/chat.php";
 });
+$router->get("/create-group",function(){
+    require_once __DIR__."/../views/create-group.php";
+});
+$router->post("/create-group",function(){
+    require_once __DIR__."/../views/create-group.php";
+});
+$router->get("/invite",function(array $params){
+    require_once __DIR__."/../views/group-invite.php";
+});
 $router->get("/login",function(){
     require_once __DIR__."/../views/login.php";
 });
