@@ -1,3 +1,10 @@
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
+<!-- ---------------------XAMPPP VERSIO------------------------------ -->
 <?php
 //viestin lähetys
 if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -17,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 }
 
 if (!isset($_SESSION["userID"])){
-    header("Location: /login");
+    header("Location: /chatroom/public/login");
     exit;
 }
 if(!empty($params["id"])){
@@ -63,19 +70,19 @@ $sql = sprintf(
     $groupchats = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <h1>chat</h1>
-<p>username: <?=$_SESSION["username"]?> userID: <?=$_SESSION["userID"]?> <a href="/logout">logout</a></p>
+<p>username: <?=$_SESSION["username"]?> userID: <?=$_SESSION["userID"]?> <a href="/chatroom/public/logout">logout</a></p>
 <h3>Chats</h3>
 <?php
     //echo '<pre>'; print_r($chats); echo '</pre>';
     foreach($chats as $chat){
-        echo "<a href='/chat?id=".$chat["userID"]."&group=false'>".$chat["username"]."</a> <br>";
+        echo "<a href='/chatroom/public/chat?id=".$chat["userID"]."&group=false'>".$chat["username"]."</a> <br>";
     }
 ?>
-<h3>Groups <a href="/create-group">Create Group</a></h3>
+<h3>Groups <a href="/chatroom/public/create-group">Create Group</a></h3>
 <?php
     //echo '<pre>'; print_r($groupchats); echo '</pre>';
     foreach($groupchats as $group){
-        echo "<a href='/chat?id=".$group["groupID"]."&group=true'>".$group["name"]."</a><br>";
+        echo "<a href='/chatroom/public/chat?id=".$group["groupID"]."&group=true'>".$group["name"]."</a><br>";
     }
 ?>
 <?php
@@ -85,7 +92,7 @@ $sql = sprintf(
             $sql = sprintf("SELECT name,inviteID FROM groupchat WHERE groupID = '%s'",$mysqli->real_escape_string($params["id"]));
             $result = $mysqli->query($sql);
             $group = $result->fetch_assoc();
-            echo "<h3>Messaging: " . $group["name"] . " <a href='/invite?id=" . $group["inviteID"] . "'>Invite Link</a>";
+            echo "<h3>Messaging: " . $group["name"] . " <a href='/chatroom/public/invite?id=" . $group["inviteID"] . "'>Invite Link</a>";
         }elseif ($params["group"] == "false"){
             $mysqli = require __DIR__."/../src/database.php";
             $sql = sprintf("SELECT username FROM user WHERE userID = '%s'",$mysqli->real_escape_string($params["id"]));

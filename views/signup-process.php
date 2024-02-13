@@ -23,7 +23,7 @@ if (!$stmt){
 $stmt->bind_param("ss",$_POST["username"],$password_hash);
 if ($stmt->execute()){
     echo "user created";
-    header("Location: /signup-success");
+    header("Location: /chatroom/public/signup-success");
     exit;
 }else{
     die("execute failed: ".$stmt->error);
