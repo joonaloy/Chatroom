@@ -1,0 +1,16 @@
+foreach($messages as $message){
+            //onko session userID databasessa
+            $sql = "SELECT EXISTS(SELECT 1 FROM user WHERE userID = ?) as 'exists'";
+            $stmt = $mysqli->prepare($sql);
+            $stmt->bind_param('s', $message["SenderID"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $exists = (bool) $row['exists'];
+            if ($exists == true){
+                $sql = sprintf("SELECT username FROM user WHERE userID = '%s'",$mysqli->real_escape_string($message["SenderID"]));
+                $result = $mysqli->query($sql);
+                $sender = $result->fetch_assoc();
+                echo "<p>--------------------------------------------------------</p><h3>".$sender["username"]."<br></h3><p>".$message["Text"]."</p><p>".$message["Timesent"]."</p>";
+                }
+            }
