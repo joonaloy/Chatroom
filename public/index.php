@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once __DIR__."/../vendor/autoload.php";
+?>
+<link rel="stylesheet" href="\css\style.css">
+<?php
 use App\Router;
 
 $router = new Router();
