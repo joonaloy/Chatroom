@@ -10,4 +10,4 @@ $stmt->bind_param('ss', $userID, $inviteID);
 $stmt->execute();
 ?>
 <h1>Joined groupchat.</h1>
-<a href="/chat">Chat</a>
+<a href="/chatroom/public/chat">Chat</a>

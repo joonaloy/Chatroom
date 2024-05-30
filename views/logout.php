@@ -1,5 +1,5 @@
 <?php
 
 session_destroy();
-header("Location: /login");
+header("Location: /chatroom/public/login");
 exit;

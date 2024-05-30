@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once __DIR__."/../vendor/autoload.php";
+?>
+<link rel="stylesheet" href="\css\style.css">
+<?php
 use App\Router;
 
 $router = new Router();
@@ -8,13 +11,10 @@ $router = new Router();
 $router->get("/",function(){
     echo"<a href='/chat'>Chat</a>";
 });
-$router->get("/chat",function(){
+$router->get("/chat",function(array $params){
     require_once __DIR__."/../views/chat.php";
 });
 $router->post("/chat",function(array $params){
-    require_once __DIR__."/../views/chat.php";
-});
-$router->get("/chat",function(array $params){
     require_once __DIR__."/../views/chat.php";
 });
 $router->get("/create-group",function(){

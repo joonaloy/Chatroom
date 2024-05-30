@@ -17,7 +17,7 @@
         $stmt->bind_param("ssss",$_POST["name"],$groupID,$json,$inviteID);
         if ($stmt->execute()){
             echo "group created";
-            header("Location: /chat");
+            header("Location: /chatroom/public/chat");
             exit;
         }else{
             die("execute failed: ".$stmt->error);
