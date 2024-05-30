@@ -1,11 +1,11 @@
 {
-    "name": "172169/chatroom",
+    "name": "-----/chatroom",
     "description": "chatroom",
     "type": "project",
     "authors": [
         {
-            "name": "Joona Löytönen",
-            "email": "172169@sskky.fi"
+            "name": "-----",
+            "email": "------"
         }
     ],
     "minimum-stability": "stable",
