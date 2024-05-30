@@ -32,24 +32,24 @@ class Router{
     }
     public function run()
     {
-        $requestUri = parse_url($_SERVER["REQUEST_URI"]);
-        $requestPath = $requestUri["path"];
+        $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        $requestUri = str_replace('/chatroom/public', '', $requestUri);
         $method = $_SERVER["REQUEST_METHOD"];
-
+    
         $callback = null;
         foreach ($this->handlers as $handler){
-            if ($handler["path"] === $requestPath && $method === $handler["method"]){
+            if ($handler["path"] === $requestUri && $method === $handler["method"]){
                 $callback = $handler["handler"];
             }
         }
-
+    
         if(!$callback){
             header("HTTP/1.0 404 Not Found");
             if (!empty($this->notFoundHandler)){
                 $callback = $this->notFoundHandler;
             }
         }
-
+    
         call_user_func_array($callback,[
             array_merge($_GET,$_POST)
         ]);

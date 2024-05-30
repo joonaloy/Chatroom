@@ -13,7 +13,7 @@ $is_invalid = false;
                 session_start();
                 $_SESSION["userID"] = $user["userID"];
                 $_SESSION["username"] = $user["username"];
-                header("Location: /chat");
+                header("Location: /chatroom/public/chat");
                 exit;
             }
         }
@@ -35,5 +35,5 @@ $is_invalid = false;
         <input type="password" name="password" id="password">
         <button type="submit">login</button>
     </div>
-    <a href="/signup">Signup</a>
+    <a href="/chatroom/public/signup">Signup</a>
 </form>

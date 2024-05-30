@@ -1,6 +1,1 @@
-<?php
-
-?>
-<h1>Not Found</h1>
-
-<h2>dwuidwagdwauiduidwauidwhauidhwauidhwauidhwauidwhauidhwaiudwhaiduwhauidwahdiuwahdwuiahdwuiahdwauidhwauidhwauihdwaiudhwaui</h2>
+<h1>404&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;&#128557;</h1>
